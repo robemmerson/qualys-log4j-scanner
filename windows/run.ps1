@@ -17,7 +17,7 @@ $platform = "x64"
 if ([intptr]::Size -eq 4) { $platform = "x86" }
 
 $download = "https://github.com/robemmerson/qualys-log4j-scanner/raw/main/windows/$platform/Log4jScanner.exe"
-$scanner = "%TEMP%\Log4jScanner.exe"
+$scanner = "$env:TEMP\Log4jScanner.exe"
 
 Write-Host Downloading latest release
 Invoke-WebRequest $download -Out $scanner
