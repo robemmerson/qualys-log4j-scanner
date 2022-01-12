@@ -1,5 +1,19 @@
 #!/bin/sh
 
+# Modifications made by Rob - 11/01/2022
+zip -v 2> /dev/null 1> /dev/null;
+isZip=$?;
+unzip -v 2> /dev/null 1> /dev/null;
+isUnZip=$?;
+
+if [ "$isZip" -ne 0 ] || [ "$isUnZip" -ne 0 ]; then
+	echo "Please install 'zip' and 'unzip' from your package manager before running this script"
+	exit 1
+fi
+
+echo "Running Log4j Qualys Scanner..."
+
+# Start of main script
 if [ $# -eq 0 ]; then
 	BASEDIR="/"
 	NETDIR_SCAN=false
