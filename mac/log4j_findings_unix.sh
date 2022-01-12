@@ -1,6 +1,14 @@
 #!/bin/sh
 
 # Modifications made by Rob - 12/01/2022
+jar --version 2> /dev/null 1> /dev/null;
+isJar=$?;
+
+if [ "$isJar" -ne 0 ]; then
+	echo "Java runtime not installed, please install this first"
+	exit 1
+fi
+
 echo "Running Log4j Qualys Scanner..."
 
 # Start of main script
